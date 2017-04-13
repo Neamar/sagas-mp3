@@ -42,7 +42,6 @@ function showBeforeAfter()
 //Afficher la base du HTML
 include('../header.php');
 
-//echo '<p style="color:red;">Épisode 14 de Reflets d\'Acide disponible depuis le 4 octobre, les <a href="/Res/Reflets/Episode-14">références</a> sont disponibles !<br /><span class="petitTexte" style="color:black;">Vous aimez Reflets d\'Acide ? Vous devriez jeter un &oelig;il sur <a href="http://omnilogie.fr">omnilogie</a> pour continuer de vous cultiver !</p>';
 ?>
 <script type="text/javascript">
 function gID(Item)
