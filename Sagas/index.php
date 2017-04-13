@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set("Europe/Paris");
+
 //Vérifier qu'il n'y a pas d'erreur et qu'on vient bien d'une page à Saga.
 if(!isset($_Nom))
 	exit();
