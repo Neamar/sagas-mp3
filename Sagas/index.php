@@ -154,7 +154,7 @@ else
 	$Episode->OutputIntro();
 	?>
 	<p class="erreur"><img src="http://i.creativecommons.org/l/by-nc/2.0/fr/88x31.png" alt="CC BY-NC" />Cette &oelig;uvre est un travail collaboratif basé sur l'ouvrage de <?php echo $_Auteur; ?>. Les internautes ayant participé sont listés sur la <a href="./">page d'accueil</a> du projet.<br /><br />
-	Une subtilité n'est pas référencée ? N'hésitez pas à la <a rel="nofollow" href="http://neamar.fr/Mail.php">signaler</a> !</p>
+	Une subtilité n'est pas référencée ? N'hésitez pas à la <a rel="nofollow" href="https://github.com/Neamar/sagas-mp3/issues">signaler</a> !</p>
 	<?php
 
 	showBeforeAfter();
