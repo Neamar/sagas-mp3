@@ -19,5 +19,6 @@ $Box = array(
 
 ///--------------------------
 //Puis l'afficher comme n'importe quelle saga
+define('FILE_ARE_UTF8',true);
 include('../Sagas/index.php');
 ?>
