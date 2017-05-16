@@ -41,14 +41,14 @@ class Dialogue
 			$Lignes=array_map('utf8_decode',$Lignes);
 			$Lignes[0]=substr($Lignes[0],1);//BOM
 		}
-		
+
 		//Mettre à jour le titre :
 		if($this->Nom!='')
 			$this->Nom .= ' : ' . $Lignes[0];
 		else
 			$this->Nom = $Lignes[0];
 		unset($Lignes[0]);
-		
+
 		//Puis récuperer le dialogue :
 		foreach($Lignes as $buffer)
 		{
@@ -94,7 +94,7 @@ class Dialogue
 				if($ID>=2)
 					$Texte .= '</dl>' . "\n\n";
 				$Texte .= '<h3 class="clear">' . $this->Chapitres[$ID] . '</h3>';
-				$Texte .= "\n\n" . '<p class="petitTexte floatR"><a href="#" onclick="ToggleEditMode(this,\'Dialogue_' . $ID . '\'); return false;">Passer en mode édition</a></p>
+				$Texte .= "\n\n" . '<p class="petitTexte floatR"><a href="#" onclick="ToggleEditMode(this,\'Dialogue_' . $ID . '\'); return false;">Passer en mode édition</a></p><p class="clear"></p>
 <dl id="Dialogue_' . $ID . '">' . "\n";
 			}
 
