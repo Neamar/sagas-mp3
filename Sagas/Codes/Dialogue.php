@@ -39,7 +39,7 @@ class Dialogue
 		if(FILE_ARE_UTF8)
 		{
 			$Lignes=array_map('utf8_decode',$Lignes);
-			$Lignes[0]=substr($Lignes[0],1);//BOM
+			$Lignes[0]=str_replace("\xEF\xBB\xBF",'',$Lignes[0]);//BOM
 		}
 
 		//Mettre à jour le titre :

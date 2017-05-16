@@ -1,9 +1,6 @@
 <h2>Présentation du projet</h2>
 <p class="erreur">Cette page liste des statistiques concernant la série. Pour voir les références et clin d'&oelig;ils par épisode, servez-vous du menu ci dessous, à droite.</p>
 
-<?php
-AfficherBoiteSaga($Episode);
-?>
 <p>Avant de commencer, quelques remerciements :</p>
 <ul>
 <li>À Salagir, darkness.and.light, Meeshkah, romano1986_76, AglarEdain, draceinerre, lagile et Fatalis pour leurs relectures attentives, intensives et extensives ;</li>
@@ -12,7 +9,11 @@ AfficherBoiteSaga($Episode);
 <li>À Fatalis pour la création des fichiers Noël d'Acide et Joyeux Noël ;</li>
 <li>Et bien sûr à JBX, sans qui rien de tout cela n'existerait !</li>
 </ul>
-<p class="petitTexte">(vous aussi, n'hésitez pas à contribuer en ajoutant une référence, une anecdote...<a href="http://neamar.fr/Mail.php">contactez-moi</a> !)</p>
+<p class="petitTexte">(<a href="https://github.com/Neamar/sagas-mp3/blob/master/CONTRIBUTING.md">vous aussi, n'hésitez pas à contribuer en ajoutant une référence, une anecdote...</a> !)</p>
+
+<?php
+AfficherBoiteSaga($Episode);
+?>
 <hr style="clear:none;"/>
 <p>Fan de Reflets d'Acide, je me suis un jour fait la remarque que Trichelieu semblait occuper une place prépondérante dans la série. Scientifique dans l'âme, je ne pouvais juger sur mes seules impressions... et je me suis donc attelé au développement d'une classe permettant de génerer des statistiques sur un texte donné. L'ensemble obtenu, assez souple, me permit de façon secondaire de chiffrer les temps de parole de chacun.</p>
 

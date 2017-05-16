@@ -17,7 +17,7 @@ foreach($Bonus as $Lien)
 
 function AfficherBoiteSaga(&$Episode)
 {
-	echo '<div class="floatR" style="margin:15px; width:40%; border:1px solid black;"><p>Sélectionnez un épisode !</p>' . "\n<ol class=\"Comptable\">";
+	echo '<div><p>Sélectionnez un épisode !</p>' . "\n<ol class=\"Comptable\">";
 	foreach($Episode as &$E)
 	{
 		echo '<li><a href="' . $E->Lien . '">' . $E->Nom . "</a>\n<ol class=\"Comptable petitTexte\">";
