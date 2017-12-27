@@ -75,7 +75,7 @@ for($i=1;$i<=$NBEpisode;$i++)
 	$IMGValue .= round(100*$Taille[$i]/$MAX) . ',';
 	$IMG2Value .= round(100*$NBRef[$i]/$MAXRef) . ',';
 }
-echo '<p><img class="floatR" src="http://chart.apis.google.com/chart?cht=lc&amp;chs=730x350&amp;chd=t:' . substr($IMGValue,0,-1) . '|' . substr($IMG2Value,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAX/2) . '|' . $MAX . '+\/+' . $MAXRef . '&amp;chco=FF0000,AAFFAA&amp;chdl=Repliques|References" alt="Taille en nombre de répliques" /></p>' . "\n";
+echo '<p><img class="floatR" src="//chart.apis.google.com/chart?cht=lc&amp;chs=730x350&amp;chd=t:' . substr($IMGValue,0,-1) . '|' . substr($IMG2Value,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAX/2) . '|' . $MAX . '+\/+' . $MAXRef . '&amp;chco=FF0000,AAFFAA&amp;chdl=Repliques|References" alt="Taille en nombre de répliques" /></p>' . "\n";
 echo '<p>Lignes/ Réf.</p><ol>' . $ListValue . '</ol>';
 echo '<p class="erreur">ATTENTION : L\'échelle indique le nombre de répliques, et non le nombre de références, qui utilise une autre échelle.<br />Les deux courbes ne sont mises sur le même graphique qu\'afin de mettre en relation le nombre de références et la taille des épisodes.</p>';
 ?>
@@ -136,10 +136,10 @@ foreach($Persos as $Perso=>$Couleur)
 			$IMGValueREL .= $TailleREL[$i] . ',';
 		}
 		//Le graphique absolu
-		echo '<p class="floatR"><img src="http://chart.apis.google.com/chart?cht=lc&amp;chs=440x150&amp;chtt=' . filter($Perso) . '+(absolu)&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAX/2) . '|' . $MAX . '&amp;chco=' . $Couleur . '" alt="Nombre de répliques de ' . $Perso . ' (absolu)" /><br />' . "\n";
+		echo '<p class="floatR"><img src="//chart.apis.google.com/chart?cht=lc&amp;chs=440x150&amp;chtt=' . filter($Perso) . '+(absolu)&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAX/2) . '|' . $MAX . '&amp;chco=' . $Couleur . '" alt="Nombre de répliques de ' . $Perso . ' (absolu)" /><br />' . "\n";
 
 		//Et le relatif
-		echo '<img src="http://chart.apis.google.com/chart?cht=lc&amp;chs=400x150&amp;chtt=' . filter($Perso) . '&amp;chd=t:' . substr($IMGValueREL,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAXREL/2) . '%|' . round($MAXREL) . '%&amp;chco=' . $Couleur . '" alt="Nombre de répliques de ' . $Perso . ' (relatif)" /></p>' . "\n";
+		echo '<img src="//chart.apis.google.com/chart?cht=lc&amp;chs=400x150&amp;chtt=' . filter($Perso) . '&amp;chd=t:' . substr($IMGValueREL,0,-1) . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($MAXREL/2) . '%|' . round($MAXREL) . '%&amp;chco=' . $Couleur . '" alt="Nombre de répliques de ' . $Perso . ' (relatif)" /></p>' . "\n";
 
 		echo '<ol>' . $ListValue . '</ol>' . "\n<p>Total : " . array_sum($TailleSVG) . ' répliques<br />Maximum : ' . max($TailleSVG) . '<br />Minimum : ' . min($TailleSVG) . '<br />Moyenne : ' . round(array_sum($TailleSVG)/$NBEpisode) . '</p>';
 		$PersosDATAS[$Perso]=array(array_sum($Taille),$TailleSVG,$TailleSVGREL);
@@ -168,12 +168,12 @@ foreach($PersosDATAS as $Data)
 //Le graphique absolu
 $ListeCouleurs=implode(",",$Persos);
 $ListePerso= implode("|",array_keys($Persos));
-echo '<p class="floatR"><img src="http://chart.apis.google.com/chart?cht=lc&amp;chs=810x370&amp;chtt=Qui+parle+?+(absolu)&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chco=' . $ListeCouleurs . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($BIGMAX/2) . '|' . $BIGMAX . '&amp;chdl=' . filter($ListePerso) . '" alt="Qui parle quand ?" /></p>' . "\n";
+echo '<p class="floatR"><img src="//chart.apis.google.com/chart?cht=lc&amp;chs=810x370&amp;chtt=Qui+parle+?+(absolu)&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chco=' . $ListeCouleurs . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($BIGMAX/2) . '|' . $BIGMAX . '&amp;chdl=' . filter($ListePerso) . '" alt="Qui parle quand ?" /></p>' . "\n";
 ?>
 <h4 class="clear">Relatif : Nombre de répliques par épisode, rapporté à la taille de l'épisode</h4>
 <?php
 //Le graphique relatif
-echo '<p class="floatR"><img src="http://chart.apis.google.com/chart?cht=lc&amp;chs=810x370&amp;chtt=Qui+parle&amp;chd=t:' . substr($IMGValueREL,0,-1) . '&amp;chco=' .  $ListeCouleurs . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($BIGMAXREL/2) . '%|' . round($BIGMAXREL) . '%&amp;chdl=' . filter($ListePerso) . '" alt="Qui parle quand ?" /></p>' . "\n";
+echo '<p class="floatR"><img src="//chart.apis.google.com/chart?cht=lc&amp;chs=810x370&amp;chtt=Qui+parle&amp;chd=t:' . substr($IMGValueREL,0,-1) . '&amp;chco=' .  $ListeCouleurs . '&amp;chxt=x,y&amp;chxl=0:|' . $IMGCaption .  '1:||' . round($BIGMAXREL/2) . '%|' . round($BIGMAXREL) . '%&amp;chdl=' . filter($ListePerso) . '" alt="Qui parle quand ?" /></p>' . "\n";
 ?>
 <h3 class="clear">À votre tambouille !</h3>
 <form method="post" action="index.php#ArriveeFormulaire">
