@@ -153,7 +153,7 @@ else
 
 	$Episode->OutputIntro();
 	?>
-	<p class="erreur"><img src="http://i.creativecommons.org/l/by-nc/2.0/fr/88x31.png" alt="CC BY-NC" />Cette &oelig;uvre est un travail collaboratif basé sur l'ouvrage de <?php echo $_Auteur; ?>. Les internautes ayant participé sont listés sur la <a href="./">page d'accueil</a> du projet.<br /><br />
+	<p class="erreur"><img src="//i.creativecommons.org/l/by-nc/2.0/fr/88x31.png" alt="CC BY-NC" />Cette &oelig;uvre est un travail collaboratif basé sur l'ouvrage de <?php echo $_Auteur; ?>. Les internautes ayant participé sont listés sur la <a href="./">page d'accueil</a> du projet.<br /><br />
 	Une subtilité n'est pas référencée ? N'hésitez pas à la <a rel="nofollow" href="https://github.com/Neamar/sagas-mp3/issues">signaler</a> !</p>
 	<?php
 
@@ -173,7 +173,7 @@ else
 	?>
 	<p class="centre"><a href="./">Retour à l'index et affichage des statistiques</a></p>
 
-	<script type="text/javascript" src="http://neamar.fr/Res/Sagas/Edit.js"></script>
+	<script type="text/javascript" src="//neamar.fr/Res/Sagas/Edit.js"></script>
 
 	<?php
 	include('../footer.php');
