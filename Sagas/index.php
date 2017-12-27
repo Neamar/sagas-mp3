@@ -75,7 +75,7 @@ if(!isset( $_GET['E']) || (is_numeric($_GET['E']) && $_GET['E']>$NBEpisode))
 
 	?>
 	<h1>Statistiques globales sur <?php echo  $_Nom; ?></h1>
-	<form action="http://www.google.fr/cse" id="cse-search-box" class="centre">
+	<form action="//www.google.fr/cse" id="cse-search-box" class="centre">
 	<div>
 		<input type="hidden" name="cx" value="partner-pub-4506683949348156:g5irco-o1uv" />
 
@@ -84,7 +84,7 @@ if(!isset( $_GET['E']) || (is_numeric($_GET['E']) && $_GET['E']>$NBEpisode))
 		<input type="submit" name="sa" value="Rechercher" />
 	</div>
 	</form>
-	<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
+	<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
 
 
 	<?php
