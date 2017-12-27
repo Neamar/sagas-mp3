@@ -175,7 +175,7 @@ class Dialogue
 			if($PourcentageABS_NotRounded<1.5)
 				$Stats .='font-size:x-small;"';
 			else
-				$Stats .= 'cursor:wait;" onmouseover="gID(\'Graphique' . $this->ID .'\').SVG=gID(\'Graphique' . $this->ID .'\').src; gID(\'Graphique' . $this->ID .'\').src=\'http://chart.apis.google.com/chart?chs=' . $Taille . '&amp;cht=gom&amp;chd=t:' . $PourcentageREL . ',' . $PourcentageABS . '&amp;chl=(relatif)|(absolu)&amp;chtt=' . str_replace('Ï','I',$Auteur) . '\';" onmouseout="gID(\'Graphique' . $this->ID .'\').src=gID(\'Graphique' . $this->ID .'\').SVG;"';//Quand on passe la souris sur un des noms, cela affiche un indicateur pour la personne. Géré via Javascript.
+				$Stats .= 'cursor:wait;" onmouseover="gID(\'Graphique' . $this->ID .'\').SVG=gID(\'Graphique' . $this->ID .'\').src; gID(\'Graphique' . $this->ID .'\').src=\'https://chart.apis.google.com/chart?chs=' . $Taille . '&amp;cht=gom&amp;chd=t:' . $PourcentageREL . ',' . $PourcentageABS . '&amp;chl=(relatif)|(absolu)&amp;chtt=' . str_replace('Ï','I',$Auteur) . '\';" onmouseout="gID(\'Graphique' . $this->ID .'\').src=gID(\'Graphique' . $this->ID .'\').SVG;"';//Quand on passe la souris sur un des noms, cela affiche un indicateur pour la personne. Géré via Javascript.
 			$Stats .= '>' . $Auteur . '&rarr;' . $NB . '</li>' . "\n";
 		}
 		$Stats .= '</' . $ListeType . '>' . "\n";
@@ -199,7 +199,7 @@ class Dialogue
 				$IMGCaption .=$Auteur . '|';
 			}
 		}
-		$Stats = '<p><img id="Graphique' . $this->ID . '" class="' . $Class . '"  src="http://chart.apis.google.com/chart?chs=' . $Taille . '&amp;cht=p3&amp;chco=FFFFFF,FF0000,00FF00,0000FF,000000&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chl=' . str_replace(str_split('ÉÈÊËÀÂÄÙÛÎÏÔ°'),str_split('EEEEAAAUUIIOo'),substr($IMGCaption,0,-1)) . '" alt="Représentation graphique" onmouseover="this.src=this.src.replace(\'cht=p3\',\'cht=p\');" " onmouseout="this.src=this.src.replace(\'cht=p\',\'cht=p3\');" /></p>';
+		$Stats = '<p><img id="Graphique' . $this->ID . '" class="' . $Class . '"  src="https://chart.apis.google.com/chart?chs=' . $Taille . '&amp;cht=p3&amp;chco=FFFFFF,FF0000,00FF00,0000FF,000000&amp;chd=t:' . substr($IMGValue,0,-1) . '&amp;chl=' . str_replace(str_split('ÉÈÊËÀÂÄÙÛÎÏÔ°'),str_split('EEEEAAAUUIIOo'),substr($IMGCaption,0,-1)) . '" alt="Représentation graphique" onmouseover="this.src=this.src.replace(\'cht=p3\',\'cht=p\');" " onmouseout="this.src=this.src.replace(\'cht=p\',\'cht=p3\');" /></p>';
 		echo $Stats;
 	}
 

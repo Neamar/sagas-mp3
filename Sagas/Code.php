@@ -1,6 +1,6 @@
 <?php
 $NoPub=true;
-$Box = array("Auteur"=>"Neamar", "Date" => "Aout 2008", "But" =>"Traitement données","Voir aussi"=>'<a href="http://neamar.fr/Res/Reflets/">Accueil Reflets</a>');
+$Box = array("Auteur"=>"Neamar", "Date" => "Aout 2008", "But" =>"Traitement données","Voir aussi"=>'<a href="/Res/Reflets/">Accueil Reflets</a>');
 
 $Titre="Code source de la classe Dialogue.";
 include('../header.php');
