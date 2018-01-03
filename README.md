@@ -5,8 +5,8 @@
 
 Ce repository contient les données permettant l'affichage de trois sagas sur neamar.fr:
 
-* [Reflets d'Acide](http://neamar.fr/Res/Reflets)
-* [Adoprixtoxis](http://neamar.fr/Res/Adoprixtoxis/)
-* [Xantah](http://neamar.fr/Res/Xantah)
+* [Reflets d'Acide](https://neamar.fr/Res/Reflets)
+* [Adoprixtoxis](https://neamar.fr/Res/Adoprixtoxis/)
+* [Xantah](https://neamar.fr/Res/Xantah)
 
 Le dossier `sagas/` contient le code PHP pour l'affichage.
