@@ -1,7 +1,3 @@
-# On utilise PHP5 pour les classes...
-AddType x-mapp-php5 .php
-AddHandler x-mapp-php5 .php
-
 # Le serveur doit suivre les liens symboliques :
 Options +FollowSymlinks
 
