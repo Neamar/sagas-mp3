@@ -111,13 +111,8 @@ class Dialogue
 
 				if(strpos($Phrase,"REF:")!==false)
 				{//Ajoute une référence
-					$Reference = '<span class="Reference floatR">' . preg_replace('#(é|É)pisode ([1-9]?[0-9])#i','<a href="Episode-$2">$0</a>',preg_replace('#"(.+)"#isU','«&nbsp;<strong>$1</strong>&nbsp;»',substr($Phrase,strpos($Phrase,"REF:")+4))) . '</span>';
+					$Reference = '<span class="Reference floatR">' . preg_replace('#(é|É)pisode ([1-9]?[0-9])#i','<a href="Episode-$2">$0</a>',preg_replace('#"(.+)"#isU','«&nbsp;<strong>$1</strong>&nbsp;»',preg_replace('#*(.+)*#isU','<em>$1</em>',substr($Phrase,strpos($Phrase,"REF:")+4)))) . '</span>';
 					$Phrase=substr($Phrase,0,strpos($Phrase,"REF:"));
-				}
-				elseif(strpos($Phrase,"REF :")!==false)
-				{//Ajoute une référence
-					$Reference = '<span class="Reference floatR">' . preg_replace('#(é|É)pisode ([1-9]?[0-9])#i','<a href="Episode-$2">$0</a>',preg_replace('#"(.+)"#isU','«&nbsp;<strong>$1</strong>&nbsp;»',substr($Phrase,strpos($Phrase,"REF :")+5))) . '</span>';
-					$Phrase=substr($Phrase,0,strpos($Phrase,"REF :"));
 				}
 				elseif(strpos($Phrase,"JDM:")!==false)
 				{//Ajoute un jeu de mots
