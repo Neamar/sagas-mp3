@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>{{ page.title }}</title>
+</head>
+<body>
+  <h1>{{ page.title }}</h1>
+
+  {% assign lines = content | newline_to_br | split: '<br />' %}
+
+  {% for line in lines %}
+    {% assign first_characters = line | lstrip | slice:0, 9 %}
+    {% if first_characters == "Chapitre " %}
+      <h2>{{ line }}</h2>
+    {% else %}
+      <tt>{{ first_characters }}</tt>
+    {% endif %}
+
+  {% endfor %}
+<!--
+<h3 class="clear">Chapitre 1 &ndash; Auditions</h3>
+
+<p class="petitTexte floatR"><a href="#" onclick="ToggleEditMode(this,'Dialogue_0'); return false;">Passer en mode édition</a></p><p class="clear"></p>
+<dl id="Dialogue_0">
+<dt>NARRATEUR</dt>
+  <dd>M&AElig;NDER ALKOOR&hellip;</dd>
+<dt>WRANDRALL</dt>
+  <dd>Quoi ?</dd>
+<dt>NARRATEUR</dt>
+  <dd>Tout commença à M&aelig;nder Alkoor&hellip;</dd>
+  {{ content }}
+-->
+</body>
