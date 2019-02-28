@@ -1,36 +1,36 @@
-{% assign sentence = include.sentence %}
+{%- assign sentence = include.sentence -%}
 
-{% assign reference_array = sentence | split: 'REF:' %}
-{% assign reference = "" %}
-{% if reference_array.size == 2 %}
-  {% assign reference = reference_array | last %}
-  {% assign sentence = reference_array | first %}
-{% endif %}
+{%- assign reference_array = sentence | split: 'REF:' -%}
+{%- assign reference = "" -%}
+{%- if reference_array.size == 2 -%}
+  {%- assign reference = reference_array | last -%}
+  {%- assign sentence = reference_array | first -%}
+{%- endif -%}
 
-{% assign joke_array = sentence | split: 'JDM:' %}
-{% assign joke = "" %}
-{% if joke_array.size == 2 %}
-  {% assign joke = joke_array | last %}
-  {% assign sentence = joke_array | first %}
-{% endif %}
+{%- assign joke_array = sentence | split: 'JDM:' -%}
+{%- assign joke = "" -%}
+{%- if joke_array.size == 2 -%}
+  {%- assign joke = joke_array | last -%}
+  {%- assign sentence = joke_array | first -%}
+{%- endif -%}
 
-{% assign last_characters = sentence | slice:-3, 3 %}
-{% if last_characters == "TRI" %}
-  {% assign joke = "*TRICHELIADE*&nbsp;!" %}
-  {% assign size = sentence | size | minus: 3 %}
-  {% assign sentence = sentence | slice: 0, size %}
-{% endif %}
+{%- assign last_characters = sentence | slice:-3, 3 -%}
+{%- if last_characters == "TRI" -%}
+  {%- assign joke = "*TRICHELIADE*&nbsp;!" -%}
+  {%- assign size = sentence | size | minus: 3 -%}
+  {%- assign sentence = sentence | slice: 0, size -%}
+{%- endif -%}
 
-<div class="sentence{% if reference != "" or joke != "" %} has_joke clear{%endif %}">
-  {% if reference != "" %}
+<div class="sentence{%- if reference != "" or joke != "" -%} has_joke clear{%endif -%}">
+  {%- if reference != "" -%}
     <div class="reference">{{ reference | replace:"« ", "«&nbsp;" | replace:" »", "&nbsp;»" | markdownify }}</div>
-  {% endif %}
-  {% if joke != "" %}
+  {%- endif -%}
+  {%- if joke != "" -%}
     <div class="joke">{{ joke | markdownify }}</div>
-  {% endif %}
+  {%- endif -%}
   <strong>{{include.speaker}}</strong>&nbsp;:
-  {% if include.stage_direction != "" %}
+  {%- if include.stage_direction != "" -%}
     <em>[{{ include.stage_direction }}]</em>
-  {% endif %}
+  {%- endif -%}
   <span>{{ sentence }}</span>
 </div>
