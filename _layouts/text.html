@@ -5,9 +5,11 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Sagas MP3</a></li>
       <li class="breadcrumb-item"><a href="/{{ page.saga }}">{{ saga.name }}</a></li>
-      <li class="breadcrumb-item active"><a href="{{ page.url }}">{{ page.title }}</a></li>
+      <li class="breadcrumb-item active">{{ page.title }}</li>
     </ol>
   </nav>
+
+  {% include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes %}
 
   <h1>{{ page.title }}</h1>
 
@@ -51,4 +53,7 @@
 
     {% include sentence.html speaker=speaker stage_direction=stage_direction sentence=sentence %}
   {% endfor %}
+
+  {% include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes %}
+
 {% include footer.html %}

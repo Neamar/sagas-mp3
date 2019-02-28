@@ -29,8 +29,15 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.clear {
+.reference p, .joke p {
+  margin-bottom: 0;
+}
+
+.has_joke {
   border-top: 1px solid #bee5eb;
   border-bottom: 1px solid #bee5eb;
+}
+
+.clear {
   clear: right;
 }
