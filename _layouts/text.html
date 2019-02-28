@@ -8,13 +8,42 @@
   {% assign lines = content | newline_to_br | split: '<br />' %}
 
   {% for line in lines %}
-    {% assign first_characters = line | lstrip | slice:0, 9 %}
+
+    {%comment%} Is it a chapter? {%endcomment%}
+    {% assign first_characters = line | lstrip | slice: 0, 9 %}
     {% if first_characters == "Chapitre " %}
       <h2>{{ line }}</h2>
-    {% else %}
-      <tt>{{ first_characters }}</tt>
+      {% continue %}
     {% endif %}
 
+    {%comment%} Is it an empty line? {%endcomment%}
+    {% assign stripped_line = line | strip %}
+
+    {% if stripped_line == "" %}
+      {% continue %}
+    {% endif %}
+
+    {%comment%} Then it's a normal line {%endcomment%}
+    {% assign speaker = line | split: ' :' | first %}
+    {% assign to_remove = speaker | append: " :" %}
+    {% assign sentence = line | remove_first: to_remove %}
+    {% assign stage_direction = "" %}
+
+    {% assign first_characters = sentence | slice: 0, 2 %}
+    {% if first_characters == " (" %}
+      {% comment %} There is some kind of stage direction{% endcomment %}
+      {% assign stage_direction_with_parens = sentence | split: ")" | first %}
+      {% assign stage_direction = stage_direction_with_parens | slice: 2, 100000 %}
+      {% assign to_remove = stage_direction_with_parens | append: ")" %}
+      {% assign sentence = sentence | remove_first: to_remove %}
+    {% endif %}
+    <p>
+      <strong>{{speaker}}</strong>&nbsp;:
+      {% if stage_direction != "" %}
+      <em>[{{ stage_direction }}]</em>
+      {% endif %}
+      <span>{{ sentence }}</span>
+    </p>
   {% endfor %}
 <!--
 <h3 class="clear">Chapitre 1 &ndash; Auditions</h3>
