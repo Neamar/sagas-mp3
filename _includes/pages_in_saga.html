@@ -1,4 +1,9 @@
-{% assign ordered_pages = site.pages %}
-{% for p in ordered_pages %}
-  <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a></li>
+{% assign pages = '' | split: '' %}
+
+{% for p in site.pages %}
+    {% assign pages = p | concat: pages %}
+{% endfor %}
+
+{% for p in pages | sort_natural: "title" %}
+  <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a>
 {% endfor %}
