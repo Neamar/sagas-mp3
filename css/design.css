@@ -1,0 +1,36 @@
+body {
+  color: #36312d
+}
+
+.wrapper {
+  background-color: #333
+}
+
+.content {
+  background-color: white;
+}
+
+.menu {
+  background-color: white;
+}
+
+.reference, .joke {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  padding: .75rem 1.25rem;
+  margin-left: 0.1rem;
+  border: 1px solid #bee5eb;
+  border-top: 0;
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+  float: right;
+  min-width: 30%;
+  max-width: 60%;
+  margin-bottom: 0.5rem;
+}
+
+.clear {
+  border-top: 1px solid #bee5eb;
+  border-bottom: 1px solid #bee5eb;
+  clear: right;
+}

@@ -1,0 +1,30 @@
+{% assign sentence = include.sentence %}
+
+{% assign reference_array = sentence | split: 'REF:' %}
+{% assign reference = "" %}
+{% if reference_array.size == 2 %}
+  {% assign reference = reference_array | last %}
+  {% assign sentence = reference_array | first %}
+{% endif %}
+
+{% assign joke_array = sentence | split: 'JDM:' %}
+{% assign joke = "" %}
+{% if joke_array.size == 2 %}
+  {% assign joke = joke_array | last %}
+  {% assign sentence = joke_array | first %}
+{% endif %}
+
+<div class="sentence{% if reference != "" or joke != "" %} clear{%endif %}">
+  {% if reference != "" %}
+    <div class="reference">{{ reference | replace:"« ", "«&nbsp;" | replace:" »", "&nbsp;»" | markdownify }}</div>
+  {% endif %}
+  {% if joke != "" %}
+    <div class="joke">{{ joke | markdownify }}</div>
+  {% endif %}
+  <strong>{{include.speaker}}</strong>&nbsp;:
+  {% if include.stage_direction != "" %}
+  <em>[{{ include.stage_direction }}]</em>
+  {% endif %}
+  <span>{{ sentence }}</span>
+
+</div>

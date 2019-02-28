@@ -1,8 +1,14 @@
-<html>
-<head>
-  <title>{{ page.title }}</title>
-</head>
-<body>
+{% include header.html %}
+
+  {% assign saga = site.data.sagas[page.saga] %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Sagas MP3</a></li>
+      <li class="breadcrumb-item"><a href="/{{ page.saga }}">{{ saga.name }}</a></li>
+      <li class="breadcrumb-item active"><a href="{{ page.url }}">{{ page.title }}</a></li>
+    </ol>
+  </nav>
+
   <h1>{{ page.title }}</h1>
 
   {% assign lines = content | newline_to_br | split: '<br />' %}
@@ -12,7 +18,7 @@
     {%comment%} Is it a chapter? {%endcomment%}
     {% assign first_characters = line | lstrip | slice: 0, 9 %}
     {% if first_characters == "Chapitre " %}
-      <h2>{{ line }}</h2>
+      <h2>{{ line |replace: " - ", " &ndash; " }}</h2>
       {% continue %}
     {% endif %}
 
@@ -29,6 +35,11 @@
     {% assign sentence = line | remove_first: to_remove %}
     {% assign stage_direction = "" %}
 
+    {% if speaker == line %}
+      <p style="color:red">{{ line }}</p>
+      {% continue %}
+    {% endif %}
+
     {% assign first_characters = sentence | slice: 0, 2 %}
     {% if first_characters == " (" %}
       {% comment %} There is some kind of stage direction{% endcomment %}
@@ -37,25 +48,7 @@
       {% assign to_remove = stage_direction_with_parens | append: ")" %}
       {% assign sentence = sentence | remove_first: to_remove %}
     {% endif %}
-    <p>
-      <strong>{{speaker}}</strong>&nbsp;:
-      {% if stage_direction != "" %}
-      <em>[{{ stage_direction }}]</em>
-      {% endif %}
-      <span>{{ sentence }}</span>
-    </p>
-  {% endfor %}
-<!--
-<h3 class="clear">Chapitre 1 &ndash; Auditions</h3>
 
-<p class="petitTexte floatR"><a href="#" onclick="ToggleEditMode(this,'Dialogue_0'); return false;">Passer en mode édition</a></p><p class="clear"></p>
-<dl id="Dialogue_0">
-<dt>NARRATEUR</dt>
-  <dd>M&AElig;NDER ALKOOR&hellip;</dd>
-<dt>WRANDRALL</dt>
-  <dd>Quoi ?</dd>
-<dt>NARRATEUR</dt>
-  <dd>Tout commença à M&aelig;nder Alkoor&hellip;</dd>
-  {{ content }}
--->
-</body>
+    {% include sentence.html speaker=speaker stage_direction=stage_direction sentence=sentence %}
+  {% endfor %}
+{% include footer.html %}
