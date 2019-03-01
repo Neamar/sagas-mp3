@@ -1,9 +1,14 @@
     </main>
 
     <header class="col-12 col-md-3 col-xl-2 order-md-1 order-2 menu">
-      {%- assign saga = site.data.sagas[page.saga] -%}
-      <h3 class="text-center mt-2"><a href="/{{ page.saga }}">{{ saga.name }}</a></h3>
-      {% include pages_in_saga.html %}
+      {% if page.saga %}
+        {%- assign saga = site.data.sagas[page.saga] -%}
+        <h3 class="text-center mt-2"><a href="/{{ page.saga }}">{{ saga.name }}</a></h3>
+        {% include pages_in_saga.html %}
+      {% else %}
+        <h3 class="text-center mt-2"><a href="/">Sagas MP3</a></h3>
+        {% include all_sagas.html %}
+        {% endif %}
     </header>
   </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 layout: index
 saga: Adoprixtoxis
+title: "Adoprixtoxis : texte et références"
 ---
 
 Pour tous ceux qui souhaient suivre l'aventure d'Adoprixtoxis avec le texte, ou découvrir les petites références cachées de l'histoire... vous êtes au bon endroit !
