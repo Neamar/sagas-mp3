@@ -15,19 +15,21 @@
 {% endfor %}
 </div>
 
-<h4 class="text-center">Bonus</h4>
 <div class="list-group artwork-list">
 {% assign pages = '' | split: '' %}
 
 {% for p in site.pages %}
-  {% if p.saga == page.saga and p.episode == Nil %}
+  {% if p.saga == page.saga and p.episode == Nil and p.layout == "text" %}
     {% assign pages = p | concat: pages %}
   {% endif %}
 {% endfor %}
 
 {% assign pages = pages | sort_natural: "title" %}
 
+{% if pages.size > 0 %}
+<h4 class="text-center">Bonus</h4>
 {% for p in pages %}
   <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a>
 {% endfor %}
+{% endif %}
 </div>
