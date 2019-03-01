@@ -1,0 +1,61 @@
+{%- include header.html -%}
+
+  {%- assign saga = site.data.sagas[page.saga] -%}
+  <nav aria-label="breadcrumb" class="m-2">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Sagas MP3</a></li>
+      <li class="breadcrumb-item"><a href="/{{ page.saga }}">{{ saga.name }}</a></li>
+      <li class="breadcrumb-item active">{{ page.title }}</li>
+    </ol>
+  </nav>
+
+  {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
+
+  <h1>{{ page.title }}</h1>
+
+  {%- assign lines = content | newline_to_br | split: '<br />' -%}
+
+  {%- assign current_line = '' -%}
+
+  {%- for line in lines -%}
+
+    {%comment%} Is it a chapter? {%endcomment%}
+    {%- assign first_characters = line | lstrip | slice: 0, 9 -%}
+    {%- if first_characters == "Chapitre " -%}
+      {%comment%} If chapter: display last sentence, then display chapter heading {%endcomment%}
+      {% include sentence.html sentence=current_line %}
+      {% assign current_line = '' %}
+
+      <h2>{{ line |replace: " - ", " &ndash; " }}</h2>
+      {%- continue -%}
+    {%- endif -%}
+
+    {%comment%} Is it an empty line? {%endcomment%}
+    {%- assign stripped_line = line | strip -%}
+
+    {%- if stripped_line == "" -%}
+      {%- continue -%}
+    {%- endif -%}
+
+    {%comment%} Then it's a normal line {%endcomment%}
+    {%comment%} It can be a new line with a new speaker, or the remainder of the previous sentence {%endcomment%}
+
+    {%- assign has_speaker = line | split: ' :' -%}
+
+    {%- if has_speaker.size >= 2 -%}
+      {%comment%} New speaker, means previous sentence can be displayed and we can start a new one {%endcomment%}
+      {%- include sentence.html sentence=current_line -%}
+      {%- assign current_line = line -%}
+      {%- continue -%}
+    {%- else -%}
+      {%comment%} Speaker hasn't changed, append to previous line {%endcomment%}
+      {%- assign current_line = current_line | append: "<br />" | append: line -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%comment%} Ensure last line is displayed, even after the forloop {%endcomment%}
+  {%- include sentence.html sentence=current_line -%}
+
+  {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
+
+{%- include footer.html -%}

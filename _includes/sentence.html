@@ -1,0 +1,54 @@
+{%- assign sentence = include.sentence |replace:"...","…" -%}
+
+{%comment%} Is it an empty line? {%endcomment%}
+{%- assign stripped_line = sentence | strip -%}
+{%- if stripped_line != "" -%}
+  {%- assign speaker = sentence | split: ' :' | first -%}
+  {%- assign to_remove = speaker | append: " :" -%}
+  {%- assign sentence = sentence | remove_first: to_remove -%}
+  {%- assign stage_direction = "" -%}
+
+  {%- assign first_characters = sentence | slice: 0, 2 -%}
+  {%- if first_characters == " (" -%}
+    {%- comment -%} There is some kind of stage direction{%- endcomment -%}
+    {%- assign stage_direction_with_parens = sentence | split: ")" | first -%}
+    {%- assign stage_direction = stage_direction_with_parens | slice: 2, 100000 -%}
+    {%- assign to_remove = stage_direction_with_parens | append: ")" -%}
+    {%- assign sentence = sentence | remove_first: to_remove -%}
+  {%- endif -%}
+
+  {%- assign reference_array = sentence | split: 'REF:' -%}
+  {%- assign reference = "" -%}
+  {%- if reference_array.size == 2 -%}
+    {%- assign reference = reference_array | last -%}
+    {%- assign sentence = reference_array | first -%}
+  {%- endif -%}
+
+  {%- assign joke_array = sentence | split: 'JDM:' -%}
+  {%- assign joke = "" -%}
+  {%- if joke_array.size == 2 -%}
+    {%- assign joke = joke_array | last -%}
+    {%- assign sentence = joke_array | first -%}
+  {%- endif -%}
+
+  {%- assign last_characters = sentence | slice:-3, 3 -%}
+  {%- if last_characters == "TRI" -%}
+    {%- assign joke = "*TRICHELIADE*&nbsp;!" -%}
+    {%- assign size = sentence | size | minus: 3 -%}
+    {%- assign sentence = sentence | slice: 0, size -%}
+  {%- endif -%}
+
+  <div class="sentence{% if reference != "" or joke != "" %} has_joke clear{%endif -%}">
+    {%- if reference != "" -%}
+      <div class="reference">{{ reference | replace:"« ", "«&nbsp;" | replace:" »", "&nbsp;»" | markdownify }}</div>
+    {%- endif -%}
+    {%- if joke != "" -%}
+      <div class="joke">{{ joke | markdownify }}</div>
+    {%- endif -%}
+    <strong>{{speaker}}</strong>&nbsp;:
+    {%- if stage_direction != "" -%}
+      <em> [{{ stage_direction }}]</em>
+    {% endif %}
+    <span>{{ sentence }}</span>
+  </div>
+{%- endif -%}
