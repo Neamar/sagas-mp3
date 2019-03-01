@@ -10,5 +10,10 @@
 
   {{ content }}
 
+  {% if page.download %}
+  <hr />
+  <p class="alert alert-info">Site officiel de la saga : <a href="{{ page.download }}">{{ page.download }}</a></p>
+  {% endif %}
+
 {%- include footer.html -%}
 

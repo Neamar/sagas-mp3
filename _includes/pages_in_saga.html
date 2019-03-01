@@ -11,7 +11,7 @@
 {% assign pages = pages | sort_natural: "episode" %}
 
 {% for p in pages %}
-  <a class="list-group-item list-group-action small " href="{{ p.url }}"><small>{{ p.episode }}. </small>{{ p.title }}</a>
+  <a class="list-group-item list-group-action small {% if page.url == p.url %}active{% endif %}" href="{{ p.url }}"><small>{{ p.episode }}. </small>{{ p.title }}</a>
 {% endfor %}
 </div>
 
@@ -27,9 +27,9 @@
 {% assign pages = pages | sort_natural: "title" %}
 
 {% if pages.size > 0 %}
-<h4 class="text-center">Bonus</h4>
+<h4 class="text-center mt-2">Bonus</h4>
 {% for p in pages %}
-  <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a>
+  <a class="list-group-item list-group-action small {% if page.url == p.url %}active{% endif %}" href="{{ p.url }}">{{ p.title }}</a>
 {% endfor %}
 {% endif %}
 </div>
