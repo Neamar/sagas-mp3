@@ -1,7 +1,8 @@
     </main>
 
     <header class="col-12 col-md-3 col-xl-2 order-md-1 order-2 menu">
-      <h3 class="text-center"><a href="/">Reflets d'Acide</a></h3>
+      {%- assign saga = site.data.sagas[page.saga] -%}
+      <h3 class="text-center mt-2"><a href="/{{ page.saga }}">{{ saga.name }}</a></h3>
       {% include pages_in_saga.html %}
     </header>
   </div>

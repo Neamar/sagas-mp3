@@ -1,7 +1,7 @@
 {%- include header.html -%}
 
   {%- assign saga = site.data.sagas[page.saga] -%}
-  <nav aria-label="breadcrumb">
+  <nav aria-label="breadcrumb" class="m-2">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Sagas MP3</a></li>
       <li class="breadcrumb-item"><a href="/{{ page.saga }}">{{ saga.name }}</a></li>
