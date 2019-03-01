@@ -1,9 +1,33 @@
+<h4>Épisodes</h4>
+<div class="list-group artwork-list">
 {% assign pages = '' | split: '' %}
 
 {% for p in site.pages %}
+  {% if p.saga == page.saga and p.episode %}
     {% assign pages = p | concat: pages %}
+  {% endif %}
 {% endfor %}
 
-{% for p in pages | sort_natural: "title" %}
+{% assign pages = pages | sort_natural: "episode" %}
+
+{% for p in pages %}
   <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a>
 {% endfor %}
+</div>
+
+<h4>Bonus</h4>
+<div class="list-group artwork-list">
+{% assign pages = '' | split: '' %}
+
+{% for p in site.pages %}
+  {% if p.saga == page.saga and p.episode == Nil %}
+    {% assign pages = p | concat: pages %}
+  {% endif %}
+{% endfor %}
+
+{% assign pages = pages | sort_natural: "title" %}
+
+{% for p in pages %}
+  <a class="list-group-item list-group-action small " href="{{ p.url }}">{{ p.title }}</a>
+{% endfor %}
+</div>

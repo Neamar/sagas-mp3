@@ -1,7 +1,7 @@
 {% if include.episode %}
 <nav class="clear">
   <ul class="pagination pagination-lg justify-content-center">
-    {% if include.episode != 1 %}
+    {% if include.episode != "01" %}
     <li class="page-item"><a class="page-link" href="{{include.saga}}-{{ include.episode | minus: 1}}">Épisode précédent</a></li>
     {% endif %}
     {% if include.episode != include.episodes %}
