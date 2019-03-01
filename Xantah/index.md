@@ -15,6 +15,6 @@ Bonne écoute !
 
 Quelques remerciements aux personnes qui ont aidé à trouver toutes ces références et écrire les textes :
 
-* À Fatalis (×2) pour la retranscription écrite des épisodes ;
+* À Fatalis (×5) pour la retranscription écrite des épisodes ;
 * À Fatalis, Neamar, chevalier_m et les anonymes pour leurs ajouts ;
 * Et bien sûr à Nico & Matt, créateurs de la saga !
