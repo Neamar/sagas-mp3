@@ -15,11 +15,17 @@
 
   {%- assign lines = content | newline_to_br | split: '<br />' -%}
 
+  {% assign current_line = '' %}
+
   {%- for line in lines -%}
 
     {%comment%} Is it a chapter? {%endcomment%}
     {%- assign first_characters = line | lstrip | slice: 0, 9 -%}
     {%- if first_characters == "Chapitre " -%}
+      {%comment%} If chapter: display last sentence, then display chapter heading {%endcomment%}
+      {% include sentence.html sentence=current_line %}
+      {% assign current_line = '' %}
+
       <h2>{{ line |replace: " - ", " &ndash; " }}</h2>
       {%- continue -%}
     {%- endif -%}
@@ -32,27 +38,23 @@
     {%- endif -%}
 
     {%comment%} Then it's a normal line {%endcomment%}
-    {%- assign speaker = line | split: ' :' | first -%}
-    {%- assign to_remove = speaker | append: " :" -%}
-    {%- assign sentence = line | remove_first: to_remove -%}
-    {%- assign stage_direction = "" -%}
+    {%comment%} It can be a new line with a new speaker, or the remainder of the previous sentence {%endcomment%}
 
-    {%- if speaker == line -%}
-      <p style="color:red">{{ line }}</p>
+    {%- assign has_speaker = line | split: ' :' -%}
+
+    {%- if has_speaker.size >= 2 -%}
+      {%comment%} New speaker, means previous sentence can be displayed and we can start a new one {%endcomment%}
+      {% include sentence.html sentence=current_line %}
+      {% assign current_line = line %}
       {%- continue -%}
+    {%- else -%}
+      {%comment%} Speaker hasn't changed, append to previous line {%endcomment%}
+      {% assign current_line = current_line | append: "<br />" | append: line %}
     {%- endif -%}
-
-    {%- assign first_characters = sentence | slice: 0, 2 -%}
-    {%- if first_characters == " (" -%}
-      {%- comment -%} There is some kind of stage direction{%- endcomment -%}
-      {%- assign stage_direction_with_parens = sentence | split: ")" | first -%}
-      {%- assign stage_direction = stage_direction_with_parens | slice: 2, 100000 -%}
-      {%- assign to_remove = stage_direction_with_parens | append: ")" -%}
-      {%- assign sentence = sentence | remove_first: to_remove -%}
-    {%- endif -%}
-
-    {%- include sentence.html speaker=speaker stage_direction=stage_direction sentence=sentence -%}
   {%- endfor -%}
+
+  {%comment%} Ensure last line is displayed, even after the forloop {%endcomment%}
+  {% include sentence.html sentence=current_line %}
 
   {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
 
