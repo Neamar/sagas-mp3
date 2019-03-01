@@ -1,4 +1,4 @@
-{%- assign sentence = include.sentence -%}
+{%- assign sentence = include.sentence |replace:"...","…" -%}
 
 {%comment%} Is it an empty line? {%endcomment%}
 {%- assign stripped_line = sentence | strip -%}
@@ -48,7 +48,7 @@
     <strong>{{speaker}}</strong>&nbsp;:
     {%- if stage_direction != "" -%}
       <em> [{{ stage_direction }}]</em>
-    {%- endif -%}
+    {% endif %}
     <span>{{ sentence }}</span>
   </div>
-{% endif %}
+{%- endif -%}

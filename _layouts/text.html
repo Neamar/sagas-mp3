@@ -15,7 +15,7 @@
 
   {%- assign lines = content | newline_to_br | split: '<br />' -%}
 
-  {% assign current_line = '' %}
+  {%- assign current_line = '' -%}
 
   {%- for line in lines -%}
 
@@ -44,17 +44,17 @@
 
     {%- if has_speaker.size >= 2 -%}
       {%comment%} New speaker, means previous sentence can be displayed and we can start a new one {%endcomment%}
-      {% include sentence.html sentence=current_line %}
-      {% assign current_line = line %}
+      {%- include sentence.html sentence=current_line -%}
+      {%- assign current_line = line -%}
       {%- continue -%}
     {%- else -%}
       {%comment%} Speaker hasn't changed, append to previous line {%endcomment%}
-      {% assign current_line = current_line | append: "<br />" | append: line %}
+      {%- assign current_line = current_line | append: "<br />" | append: line -%}
     {%- endif -%}
   {%- endfor -%}
 
   {%comment%} Ensure last line is displayed, even after the forloop {%endcomment%}
-  {% include sentence.html sentence=current_line %}
+  {%- include sentence.html sentence=current_line -%}
 
   {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
 

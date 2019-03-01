@@ -41,3 +41,7 @@ body {
 .clear {
   clear: right;
 }
+
+.has_joke + .has_joke {
+  border-top: 0;
+}
