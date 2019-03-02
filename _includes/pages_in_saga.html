@@ -1,6 +1,18 @@
 <h4 class="text-center">Épisodes</h4>
 <div class="list-group">
+{% assign pages = '' | split: '' %}
 
+{% for p in site.pages %}
+  {% if p.saga == page.saga and p.episode %}
+    {% assign pages = p | concat: pages %}
+  {% endif %}
+{% endfor %}
+
+{% assign pages = pages | sort_natural: "episode" %}
+
+{% for p in pages %}
+  <a class="list-group-item list-group-action small {% if page.url == p.url %}active{% endif %}" href="{{ p.url }}"><small>{{ p.episode }}. </small>{{ p.title }}</a>
+{% endfor %}
 </div>
 
 <div class="list-group">
@@ -17,7 +29,7 @@
 {% if pages.size > 0 %}
 <h4 class="text-center mt-2">Bonus</h4>
 {% for p in pages %}
-  <a class="list-group-item list-group-action small {% if page.url == p.url %}active{% endif %}" href="{{ p.url }}">{{ p.title }}</a>
+  <a class="list-group-item list-group-action small{% if page.url == p.url %} active{% endif %}" href="{{ p.url }}">{{ p.title }}</a>
 {% endfor %}
 {% endif %}
 </div>
