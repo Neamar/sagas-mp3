@@ -7,7 +7,7 @@
   {% endif %}
 {% endfor %}
 
-{% assign pages = pages | sort_natural: "episode" %}
+{% assign pages = pages | sort_natural: "url" %}
 
 {% for p in pages %}
   <a class="list-group-item list-group-action small " href="{{ p.url }}"><small>{{ p.episode }}. </small>{{ p.title }}</a>
