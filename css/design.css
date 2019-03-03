@@ -43,7 +43,7 @@ body {
 }
 
 .has_joke + .has_joke {
-  border-top: 0;
+  margin-top: 5px;
 }
 
 .callout {
