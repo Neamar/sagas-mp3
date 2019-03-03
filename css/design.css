@@ -46,6 +46,24 @@ body {
   border-top: 0;
 }
 
+.callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+.callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.episode-text {
+   overflow-wrap: break-word;
+   word-break: break-word;
+}
+
 @media only screen and (max-width: 768px) {
   .reference, .joke {
     min-width: 20%;

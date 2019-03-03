@@ -9,6 +9,11 @@
     </ol>
   </nav>
 
+  <div class="callout callout-warning">
+    <p>Cette œuvre est un travail collaboratif basé sur l'ouvrage de {{ saga.auteur }}. Les internautes ayant participé sont listés sur <a href="/{{ page.saga }}">la page d'accueil du projet {{ saga.name}}</a>.<br />
+    Une subtilité n'est pas référencée ? N'hésitez pas à la <a href="https://github.com/Neamar/sagas-mp3/blob/master/CONTRIBUTING.md">signaler</a> !</p>
+  </div>
+
   {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
 
   <h1>{{ page.title }}</h1>
@@ -17,6 +22,7 @@
 
   {%- assign current_line = '' -%}
 
+  <div class="episode-text">
   {%- for line in lines -%}
 
     {%comment%} Is it a chapter? {%endcomment%}
@@ -52,6 +58,7 @@
       {%- assign current_line = current_line | append: "<br />" | append: line -%}
     {%- endif -%}
   {%- endfor -%}
+  </div>
 
   {%comment%} Ensure last line is displayed, even after the forloop {%endcomment%}
   {%- include sentence.html sentence=current_line -%}
