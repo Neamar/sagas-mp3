@@ -1,6 +1,7 @@
 ---
 layout: index
 title: Accueil des sagas MP3
+exclude_index: 1
 ---
 
 Vous trouverez sur ces pages la liste des épisodes des sagas suivantes :

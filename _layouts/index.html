@@ -17,6 +17,25 @@
   <p class="alert alert-info">Site officiel de la saga : <a href="{{ page.download }}">{{ page.download }}</a></p>
   {% endif %}
 
+  {% if page.exclude_index %}
+    {% else %}
+    <h4>Épisodes</h4>
+    <div class="list-group list-group-flush">
+      {% include episodes_in_saga.html class="list-group-item list-group-action small" %}
+    </div>
+
+    {% capture potential_bonuses %}
+    {% include bonuses_in_saga.html class="list-group-item list-group-action small" %}
+    {% endcapture %}
+    {% assign potential_bonuses = potential_bonuses | strip %}
+    {% if potential_bonuses != "" %}
+    <h4 class="mt-2">Bonus</h4>
+    <div class="list-group list-group-flush">
+      {{ potential_bonuses }}
+    </div>
+    {% endif %}
+  {% endif %}
+
   {% if page.thanks %}
   <hr />
   <div class="small">
