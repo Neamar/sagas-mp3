@@ -8,12 +8,22 @@
     </ol>
   </nav>
 
-  {{ content }}
+  <div class="lead">
+    {{ content }}
+  </div>
 
   {% if page.download %}
   <hr />
   <p class="alert alert-info">Site officiel de la saga : <a href="{{ page.download }}">{{ page.download }}</a></p>
   {% endif %}
 
+  {% if page.thanks %}
+  <hr />
+  <div class="small">
+    <p>Quelques remerciements aux personnes qui ont aidé à trouver toutes ces références :</p>
+
+    {{ page.thanks | markdownify }}
+  </div>
+  {% endif %}
 {%- include footer.html -%}
 

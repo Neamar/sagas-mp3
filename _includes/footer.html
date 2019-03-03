@@ -4,7 +4,21 @@
       {% if page.saga %}
         {%- assign saga = site.data.sagas[page.saga] -%}
         <h3 class="text-center mt-2"><a href="/{{ page.saga }}">{{ saga.name }}</a></h3>
-        {% include pages_in_saga.html %}
+        <h4 class="text-center">Épisodes</h4>
+        <div class="list-group">
+          {% include episodes_in_saga.html class="list-group-item list-group-action small" %}
+        </div>
+        {% comment %}Bonuses should only be displayed if they exist{% endcomment %}
+        {% capture potential_bonuses %}
+        {% include bonuses_in_saga.html class="list-group-item list-group-action small" %}
+        {% endcapture %}
+        {% assign potential_bonuses = potential_bonuses | strip %}
+        {% if potential_bonuses != "" %}
+        <h4 class="text-center mt-2">Bonus</h4>
+        <div class="list-group">
+          {{ potential_bonuses }}
+        </div>
+        {% endif %}
       {% else %}
         <h3 class="text-center mt-2"><a href="/">Sagas MP3</a></h3>
         {% include all_sagas.html %}

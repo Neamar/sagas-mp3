@@ -1,0 +1,13 @@
+{% assign pages = '' | split: '' %}
+
+{% for p in site.pages %}
+  {% if p.saga == page.saga and p.episode == Nil and p.layout == "text" %}
+    {% assign pages = p | concat: pages %}
+  {% endif %}
+{% endfor %}
+
+{% assign pages = pages | sort_natural: "title" %}
+
+{% for p in pages %}
+  <a class="{{ include.class }} {% if page.url == p.url %} active{% endif %}" href="{{ p.url }}">{{ p.title }}</a>
+{% endfor %}
