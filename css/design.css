@@ -45,3 +45,11 @@ body {
 .has_joke + .has_joke {
   border-top: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .reference, .joke {
+    min-width: 20%;
+    max-width: 50%;
+    font-size: 0.85em;
+  }
+}
