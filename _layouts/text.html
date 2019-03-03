@@ -58,10 +58,10 @@
       {%- assign current_line = current_line | append: "<br />" | append: line -%}
     {%- endif -%}
   {%- endfor -%}
-  </div>
 
   {%comment%} Ensure last line is displayed, even after the forloop {%endcomment%}
   {%- include sentence.html sentence=current_line -%}
+  </div>
 
   {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
 
