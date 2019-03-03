@@ -1,4 +1,4 @@
-{%- assign sentence = include.sentence |replace:"...","…" -%}
+{%- assign sentence = include.sentence | replace:"...", "…" | replace:"… ", "…" | replace:"…", "… " -%}
 
 {%comment%} Is it an empty line? {%endcomment%}
 {%- assign stripped_line = sentence | strip -%}

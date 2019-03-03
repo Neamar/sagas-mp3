@@ -25,7 +25,7 @@ body {
   border-bottom-right-radius: .25rem;
   float: right;
   min-width: 30%;
-  max-width: 60%;
+  max-width: 50%;
   margin-bottom: 0.5rem;
 }
 
@@ -67,7 +67,6 @@ body {
 @media only screen and (max-width: 768px) {
   .reference, .joke {
     min-width: 20%;
-    max-width: 50%;
     font-size: 0.85em;
   }
 }
