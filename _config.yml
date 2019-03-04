@@ -1,4 +1,8 @@
 encoding: utf-8
 permalink: pretty
+description: "Références et jeux de mots de saga MP3"
+url: "https://sagas.neamar.fr"
+lang: "fr_FR"
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
