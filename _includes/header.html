@@ -2,7 +2,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  {%- assign saga = site.data.sagas[page.saga] -%}
+  <title>{% if page.layout == "text" %}{{ saga.name }} {{ page.episode }} : {{ page.title }} | Texte, références et jeux de mots{% else %}{{ page.title}}{% endif %}</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/design.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -14,7 +15,7 @@
 
     gtag('config', 'UA-4257957-15');
   </script>
-  {% seo %}
+  {% seo title=false %}
 </head>
 <body>
 <div class="container-fluid wrapper">
