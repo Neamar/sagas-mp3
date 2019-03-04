@@ -64,6 +64,20 @@ body {
    word-break: break-word;
 }
 
+.concise .reference p, .concise .joke p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.concise .sentence:hover .reference p, .concise .sentence:hover .joke p {
+  overflow: auto;
+  white-space: normal;
+  text-overflow: clip;
+}
+
+
 @media only screen and (max-width: 768px) {
   .reference, .joke {
     min-width: 20%;

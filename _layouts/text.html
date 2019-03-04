@@ -16,9 +16,33 @@
 
   {%- include pagination.html episode=page.episode saga=page.saga episodes=saga.episodes -%}
 
-  <h1>{% if page.episode %}<small>{{ page.episode}}.</small> {% endif %}{{ page.title }}</h1>
+  <div class="text-right">
+    Affichage des références :
+    <form class="btn-group btn-group-toggle" data-toggle="buttons" name="refmode">
+      <label class="btn btn-info active">
+        <input type="radio" name="options" id="option1" autocomplete="off" value="normal" checked> Normal
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option2" value="concise" autocomplete="off"> Concis
+      </label>
+    </form>
+<script>
+var rad = document.refmode.options;
+var prev = null;
+for (var i = 0; i < rad.length; i++) {
+  rad[i].addEventListener('change', function() {
+    if (this !== prev) {
+      prev = this;
+    }
+    document.getElementsByClassName('episode-text')[0].classList.toggle('concise');
+  });
+}
+</script>
+  </div>
 
   {%- assign lines = content | newline_to_br | split: '<br />' -%}
+
+  <h1>{% if page.episode %}<small>{{ page.episode}}.</small> {% endif %}{{ page.title }}</h1>
 
   {%- assign current_line = '' -%}
 
