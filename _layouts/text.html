@@ -25,16 +25,27 @@
       <label class="btn btn-secondary">
         <input type="radio" name="options" id="option2" value="concise" autocomplete="off"> Concis
       </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option3" value="none" autocomplete="off"> Aucun
+      </label>
     </form>
 <script>
 var rad = document.refmode.options;
-var prev = null;
 for (var i = 0; i < rad.length; i++) {
   rad[i].addEventListener('change', function() {
-    if (this !== prev) {
-      prev = this;
+    var container = document.getElementById('episode-text');
+    if (this.value === 'concise') {
+      container.classList.add('concise');
+      container.classList.add('display-references');
     }
-    document.getElementsByClassName('episode-text')[0].classList.toggle('concise');
+    else if (this.value === 'normal') {
+      container.classList.remove('concise');
+      container.classList.add('display-references');
+    }
+    else if (this.value === 'none') {
+      container.classList.remove('concise');
+      container.classList.remove('display-references');
+    }
   });
 }
 </script>
@@ -46,7 +57,7 @@ for (var i = 0; i < rad.length; i++) {
 
   {%- assign current_line = '' -%}
 
-  <div class="episode-text">
+  <div id="episode-text" class="display-references">
   {%- for line in lines -%}
 
     {%comment%} Is it a chapter? {%endcomment%}

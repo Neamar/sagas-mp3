@@ -15,6 +15,11 @@ body {
 }
 
 .reference, .joke {
+  display: none;
+}
+
+.display-references .reference, .display-references  .joke {
+  display: block;
   color: #0c5460;
   background-color: #d1ecf1;
   padding: .75rem 1.25rem;
@@ -33,16 +38,16 @@ body {
   margin-bottom: 0;
 }
 
-.has_joke {
+.display-references .has_joke {
   border-top: 1px solid #bee5eb;
   border-bottom: 1px solid #bee5eb;
 }
 
-.clear {
+.display-references .clear {
   clear: right;
 }
 
-.has_joke + .has_joke {
+.display-references  .has_joke + .has_joke {
   margin-top: 5px;
 }
 
@@ -59,19 +64,19 @@ body {
     border-left-color: #f0ad4e;
 }
 
-.episode-text {
+#episode-text {
    overflow-wrap: break-word;
    word-break: break-word;
 }
 
-.concise .reference p, .concise .joke p {
+.display-references.concise .reference p, .display-references.concise .joke p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 
-.concise .sentence:hover .reference p, .concise .sentence:hover .joke p {
+.display-references.concise .sentence:hover .reference p, .display-references.concise .sentence:hover .joke p {
   overflow: auto;
   white-space: normal;
   text-overflow: clip;
@@ -79,7 +84,7 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-  .reference, .joke {
+  .display-references .reference, .display-references .joke {
     min-width: 20%;
     font-size: 0.85em;
   }
