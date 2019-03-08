@@ -19,21 +19,29 @@
 
   {% if page.exclude_index %}
     {% else %}
+    <div class="container">
+    <div class="row">
+    <div class="col-md">
     <h4>Épisodes</h4>
     <div class="list-group list-group-flush">
-      {% include episodes_in_saga.html class="list-group-item list-group-action small" %}
+      {% include episodes_in_saga.html class="list-group-item list-group-action" %}
+    </div>
     </div>
 
     {% capture potential_bonuses %}
-    {% include bonuses_in_saga.html class="list-group-item list-group-action small" %}
+    {% include bonuses_in_saga.html class="list-group-item list-group-action" %}
     {% endcapture %}
     {% assign potential_bonuses = potential_bonuses | strip %}
     {% if potential_bonuses != "" %}
-    <h4 class="mt-2">Bonus</h4>
+    <div class="col-md">
+    <h4>Bonus</h4>
     <div class="list-group list-group-flush">
       {{ potential_bonuses }}
     </div>
+    </div>
     {% endif %}
+    </div>
+    </div>
   {% endif %}
 
   {% if page.thanks %}
