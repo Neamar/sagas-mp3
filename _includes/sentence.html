@@ -40,15 +40,15 @@
 
   <div class="sentence{% if reference != "" or joke != "" %} has_joke clear{%endif -%}">
     {%- if reference != "" -%}
-      <div class="reference">{{ reference | replace:"« ", "«" | replace:" »", "»" | replace:"«", "«&nbsp;" | replace:"»", "&nbsp;»" | markdownify }}</div>
+      <div class="reference">{% include typo.html text=reference %}</div>
     {%- endif -%}
     {%- if joke != "" -%}
-      <div class="joke">{{ joke | replace:"« ", "«" | replace:" »", "»" | replace:"«", "«&nbsp;" | replace:"»", "&nbsp;»" | markdownify }}</div>
+      <div class="joke">{% include typo.html text=joke %}</div>
     {%- endif -%}
     <strong>{{speaker}}</strong>&nbsp;:
     {%- if stage_direction != "" -%}
       <em class="text-muted"> [{{ stage_direction }}]</em>
     {% endif %}
-    <span>{{ sentence }}</span>
+    <span>{% include typo.html text=sentence %}</span>
   </div>
 {%- endif -%}
