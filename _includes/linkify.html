@@ -1,0 +1,19 @@
+{%- assign text = include.text -%}
+
+{%comment%} Ugly workaround, but Liquid won't allow regexp replacements. So I need to come up with a creative way of adding links :'( {%endcomment%}
+{%comment%}We'll look for any instance of "épisode X" where X is a number between 1 and 20. We need to work in reverse to avoid linking "épisode 11" to épisode 1, and we'll also need to make sure the character just before isn't a link marker. That's ugly and slow.{%endcomment%}
+{%- for num in (1..20) -%}
+{%- assign rnum = 21 | minus: num -%}
+{%- assign episode = "épisode " | append: rnum -%}
+{%- assign replacement = "[épisode " | append: rnum | append: "](/" | append: page.saga | append: '/' | append: page.saga | append: '-' | append: rnum | append: ')' -%}
+
+{%- assign episode_apos = "'" | append: episode -%}
+{%- assign replacement_apos = "'" | append: replacement -%}
+{%- assign episode_space = " " | append: episode -%}
+{%- assign replacement_space = " " | append: replacement -%}
+
+{%- assign text = text | replace: episode_apos,replacement_apos -%}
+{%- assign text = text | replace: episode_space,replacement_space -%}
+{%- endfor -%}
+
+{% include typo.html text=text %}
