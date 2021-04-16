@@ -6,15 +6,7 @@
   <title>{% if page.layout == "text" %}{{ saga.name }} {{ page.episode }} : {{ page.title }} | Texte, références et jeux de mots{% else %}{{ page.title}}{% endif %}</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/design.css">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4257957-15"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-4257957-15');
-  </script>
+  <script async defer data-domain="sagas.neamar.fr" src="https://t.neamar.fr/js/plausible.js"></script>
   {% seo title=false %}
 </head>
 <body>
