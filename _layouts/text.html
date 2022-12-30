@@ -67,7 +67,7 @@ for (var i = 0; i < rad.length; i++) {
       {% include sentence.html sentence=current_line %}
       {% assign current_line = '' %}
 
-      <h2 id="{{ line | slugify }}">{{ line |replace: " - ", " &ndash; " }}</h2>
+      <h2 id="{{ line | slugify }}">{{ line |replace: " - ", " – " }}</h2>
       {%- continue -%}
     {%- endif -%}
 
