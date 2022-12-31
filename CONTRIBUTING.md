@@ -31,14 +31,14 @@ Chapitre 1 - Autre chose
 
 LUI : Parle...
 sur deux lignes.
-ELLE : ParlesREF:Une explication
+ELLE : Parle REF:Une explication
 sur deux lignes
-EUX : Parle
+EUX : Parlent
 sur
 plusieurs
 lignes
-TOUS : (en chœur) parle
-et reparleREF: ce n'est pas
+TOUS : (en chœur) parlent
+et reparlent REF: ce n'est pas
 en une seule ligne non plus
 ```
 
