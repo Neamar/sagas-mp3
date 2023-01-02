@@ -27,11 +27,11 @@ body {
   border: 1px solid #bee5eb;
   border-top: 0;
   border-bottom-left-radius: .25rem;
-  border-bottom-right-radius: .25rem;
   float: right;
   min-width: 30%;
   max-width: 50%;
   margin-bottom: 0.5rem;
+  margin-right: -1px;
 }
 
 .reference p, .joke p {
@@ -41,6 +41,7 @@ body {
 .display-references .has_joke {
   border-top: 1px solid #bee5eb;
   border-bottom: 1px solid #bee5eb;
+  border-right: 1px solid #bee5eb;
 }
 
 .display-references .clear {
