@@ -13,7 +13,7 @@ Une fois le compte créé, vérifiez que vous êtes bien connecté.
     * Pour ajouter une référence, après le texte, ajoutez simplement `REF:` suivi de votre texte.
        * Par exemple: `VOIX OFF : Adoprixtoxis, la planète mystérieuse... épisode premier : le naufrageREF:Au passage, sachez que le nom "Adoprixtoxis" n'a aucun sens caché, il s'agit juste d'une suite de lettres tapées plus ou moins au hasard sur un clavier.`
     * Pour ajouter un jeu de mots, utilisez `JDM:` au lieu de `REF:`
-    * Pour ajouter une Tricheuliade (utile pour Reflets d'Acide uniquement), finissez le texte par `TRI` en majuscules.
+    * Pour ajouter une Tricheliade (utile pour Reflets d'Acide uniquement), finissez le texte par `TRI` en majuscules.
 7. Cliquez ensuite sur "Propose file change"
 8. Cliquez sur le gros bouton vert "Create pull request"
 9. Cliquez une nouvelle fois sur le gros bouton vert "Create pull request".
@@ -48,4 +48,4 @@ en une seule ligne non plus
 ```
 
 Utilisez `REF:` pour une référence, et `JDM:` pour un jeu de mots.
-Il est aussi possible d'utiliser `TRI` en fin de phrase pour indiquer une tricheuliade.
+Il est aussi possible d'utiliser `TRI` en fin de phrase pour indiquer une tricheliade.
